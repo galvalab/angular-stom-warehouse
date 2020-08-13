@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+	<mat-toolbar-row>
+		<i [routerLink]="[prevroute]" class="material-icons" style="font-size: 28px;">{{ backButton }}</i>
+		<span>{{ headerText }}</span>
+		<span class="example-spacer"></span>
+		<div>
+			<button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item (click)="adminLogout()">
+          <mat-icon>close</mat-icon>
+          <span>Logout</span>
+        </button>
+			</mat-menu>
+		</div>
+	</mat-toolbar-row>
+</mat-toolbar>
+<div *ngIf="showProgressBar">
+	<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>

@@ -1,0 +1,13 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+:host webcam::ng-deep video {
+    max-height: 35vh;
+    max-width: 95vw;
+    object-fit: contain;
+}
+
+.my-mat-toolbar{
+  margin-top: -5px;
+}

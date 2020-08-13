@@ -1,0 +1,34 @@
+<div class="mat-app-background basic-container">
+	<mat-card class="example-card">
+		<mat-card-title>SN Barcode</mat-card-title>
+		<mat-card-content *ngIf="barcodeResultString"><b>{{ barcodeResultString }}</b></mat-card-content>
+		<mat-card-actions>
+			<button mat-raised-button [routerLink]="['barcode']">Read</button>
+		</mat-card-actions>
+	</mat-card>
+
+	<mat-card class="example-card">
+		<mat-card-title>SN Barcode Image</mat-card-title>
+		<img id="capturedImage" mat-card-image [src]="imageResult" alt="" *ngIf="imageResult">
+		<mat-card-actions>
+			<button mat-raised-button [routerLink]="['image']">Capture</button>
+		</mat-card-actions>
+	</mat-card>
+
+	<mat-card class="example-card">
+		<mat-card-title>Scan Geopoint</mat-card-title>
+		<mat-card-content *ngIf="scanCoordinate">
+			<p>Latitude: {{ scanCoordinate.coords.latitude }}</p>
+			<p>Longitude: {{ scanCoordinate.coords.longitude }}</p>
+			<p>Accuracy: {{ scanCoordinate.coords.accuracy }} </p>
+			<p>Timestamp: {{ scanCoordinate.timestamp }}</p>
+		</mat-card-content>
+	</mat-card>
+  <mat-card class="example-card">
+		<mat-card-title></mat-card-title>
+		<mat-card-content></mat-card-content>
+		<mat-card-actions>
+			<button mat-raised-button color="primary" (click)="saveSnBarcode()">Save</button>
+		</mat-card-actions>
+	</mat-card>
+</div>

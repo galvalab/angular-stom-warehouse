@@ -1,0 +1,16 @@
+p {
+  font-family: Lato;
+}
+/* Structure */
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-list-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
