@@ -17,6 +17,9 @@ export class UrlPathService {
   private loadingAnimation = new BehaviorSubject(false);
   sharedLoadingAnimation = this.loadingAnimation;
 
+  private logoutMenu = new BehaviorSubject(false);
+  sharedLogoutMenu = this.logoutMenu;
+
   constructor(private router: Router, private stomws: StomWsService) {}
 
   setPrevUrl(prevurl: string) {
@@ -37,5 +40,9 @@ export class UrlPathService {
 
   setLoadingAnimation(isDisplay: boolean) {
     this.loadingAnimation.next(isDisplay);
+  }
+
+  setLogoutMenu(logoutMenu: boolean) {
+    this.logoutMenu.next(logoutMenu);
   }
 }

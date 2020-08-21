@@ -25,6 +25,7 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
     this.urlpath.setHeaderText("STOMWS");
     this.urlpath.setBackButton(false);
+    this.urlpath.setLogoutMenu(false);
 
     this.loggingOut();
   }

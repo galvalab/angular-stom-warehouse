@@ -44,6 +44,7 @@ export class WarehouseListComponent implements OnInit {
 
       this.urlpath.setHeaderText("Warehouse");
       this.urlpath.setBackButton(false);
+      this.urlpath.setLogoutMenu(true);
     });
   }
 

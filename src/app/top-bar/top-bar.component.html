@@ -3,7 +3,7 @@
 		<i [routerLink]="[prevroute]" class="material-icons" style="font-size: 28px;">{{ backButton }}</i>
 		<span>{{ headerText }}</span>
 		<span class="example-spacer"></span>
-		<div>
+		<div *ngIf="logoutMenu">
 			<button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
 			<mat-menu #menu="matMenu">
 				<button mat-menu-item (click)="adminLogout()">

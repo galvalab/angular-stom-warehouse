@@ -19,6 +19,8 @@ export class TopBarComponent implements OnInit {
 
   showProgressBar: boolean;
 
+  logoutMenu = true;
+
   constructor(
     private prevurl: UrlPathService,
     private actRouter: ActivatedRoute,
@@ -40,6 +42,10 @@ export class TopBarComponent implements OnInit {
 
     this.prevurl.sharedLoadingAnimation.subscribe(isdisplayed => {
       this.showProgressBar = isdisplayed;
+    });
+
+    this.prevurl.sharedLogoutMenu.subscribe(isdisplayed => {
+      this.logoutMenu = isdisplayed;
     });
 
     // Get Current URL
