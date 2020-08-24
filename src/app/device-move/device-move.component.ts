@@ -19,6 +19,8 @@ export class DeviceMoveComponent implements OnInit, OnDestroy {
   agentid: string;
   warehouseid: string;
 
+  qrDeviceID: string;
+
   QrResult = [[]];
 
   scanCoordinate: Position;
@@ -98,6 +100,8 @@ export class DeviceMoveComponent implements OnInit, OnDestroy {
         resp.Body.Row.forEach(item => {
           this.QrResult.push(item);
         });
+
+        this.qrDeviceID = this.QrResult[4][1];
       });
 
       // Activate the move button
@@ -128,7 +132,7 @@ export class DeviceMoveComponent implements OnInit, OnDestroy {
     const storef = String(Guid.create()).toUpperCase();
 
     // Save the image first
-    this.stomws.addBarcodeImage(storef, ext, data_url).subscribe(imgresp => {
+    this.stomws.addQrcodeImage(this.qrDeviceID, storef, ext, data_url).subscribe(imgresp => {
       // move the device then
       this.stomws
         .moveDevice(
