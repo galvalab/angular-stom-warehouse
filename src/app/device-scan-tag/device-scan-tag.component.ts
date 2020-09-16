@@ -135,7 +135,7 @@ export class DeviceScanTagComponent implements OnInit {
 
         // Save the image first
         this.stomws
-          .addBarcodeImage(storef, ext, data_url)
+          .addQrcodeImage(this.deviceid, storef, ext, data_url)
           .subscribe(imgresp => {
             // Save the data then
             this.stomws
