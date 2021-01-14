@@ -25,9 +25,9 @@
 					<mat-list>
 						<mat-list-item>
 							<mat-icon mat-list-icon>print</mat-icon>
-							<div mat-line>{{element.SerialNumber}}</div>
-							<div mat-line> Model: {{element.DeviceModel}}</div>
-							<div mat-line> AssetNo: {{element.AssetNo }}</div>
+							<div mat-line>{{element.SerialNumber | slice: 0: 17}}</div>
+							<div mat-line> Model: {{element.DeviceModel | slice: 0: 17}}</div>
+							<div mat-line> AssetNo: {{element.AssetNo | slice: 0: 17 }}</div>
 						</mat-list-item>
 					</mat-list>
 				</td>
