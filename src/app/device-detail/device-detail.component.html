@@ -1,101 +1,117 @@
 <div class="mat-app-background basic-container">
-	<h3>Device Info</h3>
-	<mat-card class="example-card">
-		<mat-card-header>
-			<!-- <div mat-card-avatar></div>
+  <h3>Device Info</h3>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <!-- <div mat-card-avatar></div>
 			<mat-card-title></mat-card-title> -->
-			<mat-card-subtitle>
-				<mat-slide-toggle [(ngModel)]="isUpdate">Update</mat-slide-toggle>
-			</mat-card-subtitle>
-		</mat-card-header>
-		<!-- <img mat-card-image *ngIf=" snPicUrl" src="{{ snPicUrl }}" alt="no sn pic available"> -->
-		<mat-card-content>
-			<mat-form-field class="example-form-field">
-				<mat-label>Serial Number</mat-label>
-				<input matInput readonly="{{ !isUpdate }}" [(ngModel)]="sn">
+      <mat-card-subtitle>
+        <mat-slide-toggle [(ngModel)]="isUpdate">Update</mat-slide-toggle>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image *ngIf=" snPicUrl" src="{{ snPicUrl }}" alt="no sn pic available"> -->
+    <mat-card-content>
+      <mat-form-field class="example-form-field">
+        <mat-label>Serial Number</mat-label>
+        <input matInput readonly="{{ !isUpdate }}" [(ngModel)]="sn">
       </mat-form-field>
-				<mat-form-field class="example-form-field">
-					<mat-label>Device Model</mat-label>
-					<input matInput readonly="{{ !isUpdate }}" [(ngModel)]="model">
+      <mat-form-field class="example-form-field">
+        <mat-label>Device Model</mat-label>
+        <input matInput readonly="{{ !isUpdate }}" [(ngModel)]="model">
       </mat-form-field>
-					<mat-form-field class="example-form-field">
-						<mat-label>Device Location</mat-label>
-						<textarea matInput readonly="{{ !isUpdate !}}" [(ngModel)]="devAddress"></textarea>
-					</mat-form-field>
-		</mat-card-content>
-		<mat-card-actions>
-			<button mat-raised-button color="primary" disabled="{{ !isUpdate }}" (click)="updateDevice()">Save</button>
-		</mat-card-actions>
-	</mat-card>
-	<br />
-	<h3>Device Scanning Info</h3>
-	<mat-card class="example-card">
-		<mat-card-header>
-			<div mat-card-avatar>
-				<i class="material-icons dummy-avatar">print</i>
-			</div>
-			<mat-card-title>SN Barcode</mat-card-title>
-			<mat-card-subtitle>
-				<div *ngIf="snRead === '#N/A'; then thenSN else elseSN"></div>
-				<ng-template #thenSN>
-					<b style="color: red; font-size: larger">#N/A</b>
-				</ng-template>
-				<ng-template #elseSN>{{ snRead }}</ng-template>
-			</mat-card-subtitle>
-		</mat-card-header>
-		<img mat-card-image *ngIf=" snPicUrl" src="{{ snPicUrl }}" alt="no sn pic available">
-		<mat-card-content>
-			<p>
-				Geopoint: {{ snGeo }}
-			</p>
-		</mat-card-content>
-		<mat-card-actions>
-			<button mat-raised-button [routerLink]="['sn']">Modify</button>
-		</mat-card-actions>
-	</mat-card>
-	<br />
-	<mat-card class="example-card">
-		<mat-card-header>
-			<div mat-card-avatar>
-				<i class="material-icons dummy-avatar">code</i>
-			</div>
-			<mat-card-title>QR Code Asset Tag</mat-card-title>
-			<mat-card-subtitle>
-				<div *ngIf="tagRead === '#N/A'; then thenTag else elseTag"></div>
-				<ng-template #thenTag>
-					<b style="color: red; font-size: larger">#N/A</b>
-				</ng-template>
-				<ng-template #elseTag>{{ tagRead }}</ng-template>
-			</mat-card-subtitle>
-		</mat-card-header>
-		<img mat-card-image *ngIf="tagPicUrl" src="{{ tagPicUrl }}" alt="no tag pic available">
-		<mat-card-content>
-			<p>QR Sequence Number <b class="ordinal-no">{{ tagOrdinalNo }}</b></p>
-			<p>Geopoint: {{ tagGeo }}</p>
-		</mat-card-content>
-		<mat-card-actions>
-			<button mat-raised-button [routerLink]="['tag']">Modify</button>
-		</mat-card-actions>
-	</mat-card>
-	<br />
-	<mat-card class="example-card">
-		<mat-card-header>
-			<mat-card-title>Deletion Zone</mat-card-title>
-			<mat-card-subtitle>Confirmation</mat-card-subtitle>
-		</mat-card-header>
-		<mat-card-content>
-			<p>
-				<mat-slide-toggle [(ngModel)]="deleteConfOne">Confirmation 1: {{ deleteConfOne }}</mat-slide-toggle>
-			</p>
-			<p>
-				<mat-slide-toggle [(ngModel)]="deleteConfTwo">Confirmation 2: {{ deleteConfTwo }}</mat-slide-toggle>
-			</p>
+      <mat-form-field class="example-form-field">
+        <mat-label>Device Location</mat-label>
+        <textarea matInput readonly="{{ !isUpdate !}}" [(ngModel)]="devAddress"></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" disabled="{{ !isUpdate }}" (click)="updateDevice()">Save</button>
+    </mat-card-actions>
+  </mat-card>
+  <br />
+  <h3>Device Scanning Info</h3>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <i class="material-icons dummy-avatar">print</i>
+      </div>
+      <mat-card-title>SN Barcode</mat-card-title>
+      <mat-card-subtitle>
+        <div *ngIf="snRead === '#N/A'; then thenSN else elseSN"></div>
+        <ng-template #thenSN>
+          <b style="color: red; font-size: larger">#N/A</b>
+        </ng-template>
+        <ng-template #elseSN>{{ snRead }}</ng-template>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf=" snPicUrl" src="{{ snPicUrl }}" alt="no sn pic available">
+    <mat-card-content>
       <p>
-				<mat-slide-toggle [(ngModel)]="deleteConfThree">Confirmation 3: {{ deleteConfThree }}</mat-slide-toggle>
-			</p>
-		</mat-card-content>
-		<mat-card-actions>
-			<button mat-raised-button disabled="{{ !deleteConfOne || !deleteConfTwo || !deleteConfThree }}" (click)="deleteDevice()">Delete</button>
-		</mat-card-actions>
-	</mat-card>
+        Geopoint: {{ snGeo }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button [routerLink]="['sn']">Modify</button>
+    </mat-card-actions>
+  </mat-card>
+  <br />
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <i class="material-icons dummy-avatar">code</i>
+      </div>
+      <mat-card-title>QR Code Asset Tag</mat-card-title>
+      <mat-card-subtitle>
+        <div *ngIf="tagRead === '#N/A'; then thenTag else elseTag"></div>
+        <ng-template #thenTag>
+          <b style="color: red; font-size: larger">#N/A</b>
+        </ng-template>
+        <ng-template #elseTag>{{ tagRead }}</ng-template>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf="tagPicUrl" src="{{ tagPicUrl }}" alt="no tag pic available">
+    <mat-card-content>
+      <p>QR Sequence Number <b class="ordinal-no">{{ tagOrdinalNo }}</b></p>
+      <p>Geopoint: {{ tagGeo }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button [routerLink]="['tag']">Modify</button>
+    </mat-card-actions>
+  </mat-card>
+  <br />
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Deletion Zone</mat-card-title>
+      <mat-card-subtitle>Confirmation</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        <mat-slide-toggle [(ngModel)]="deleteConfOne">Confirmation 1: {{ deleteConfOne }}</mat-slide-toggle>
+      </p>
+      <p>
+        <mat-slide-toggle [(ngModel)]="deleteConfTwo">Confirmation 2: {{ deleteConfTwo }}</mat-slide-toggle>
+      </p>
+      <p>
+        <mat-slide-toggle [(ngModel)]="deleteConfThree">Confirmation 3: {{ deleteConfThree }}</mat-slide-toggle>
+      </p>
+    </mat-card-content>
+    <mat-card-content *ngIf="deleteConfOne && deleteConfTwo && deleteConfThree">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Select a reason</mat-label>
+        <mat-select [(ngModel)]="selectedReason">
+          <mat-option>None</mat-option>
+          <mat-option value="3">Has been pulled out</mat-option>
+          <mat-option value="7">Is not exist</mat-option>
+          <mat-option value="9">Is already scrapped</mat-option>
+          <mat-option value="6">Others</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" [style.display]="selectedReason === '6' ? 'block' : 'none'">
+        <mat-label>Write something here</mat-label>
+        <textarea matInput [(ngModel)]="reason"></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button [disabled]="selectedReason === undefined || selectedReason === '6' && reason.length === 0 ? true : false" (click)="deleteDevice()">Delete</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

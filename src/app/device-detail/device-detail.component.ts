@@ -38,6 +38,9 @@ export class DeviceDetailComponent implements OnInit {
   deleteConfTwo = false;
   deleteConfThree = false;
 
+  selectedReason: string;
+  reason: string = "";
+
   constructor(
     private urlpath: UrlPathService,
     private actRouter: ActivatedRoute,
@@ -193,7 +196,9 @@ export class DeviceDetailComponent implements OnInit {
   }
 
   deleteDevice() {
-    this.stomws.deleteDevice(this.agentid, this.deviceid).subscribe(resp => {
+    console.log(this.selectedReason);
+    console.log(this.reason);
+    this.stomws.deleteDevice(this.agentid, this.deviceid, this.selectedReason, this.reason).subscribe(resp => {
       this.router.navigateByUrl(this.backUrl);
     });
   }

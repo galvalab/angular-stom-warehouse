@@ -185,12 +185,21 @@ export class StomWsService {
   }
 
   ////////////////////////////#######################////////////////////////////
-  deleteDevice(agentid: string, snid: string) {
+  deleteDevice(
+    agentid: string,
+    snid: string,
+    hiddenid: string,
+    reason: string
+  ) {
     return this.http.get<wsResponseType>(
       "https://dems.galva.co.id/stom/mobile/DeleteStomDevice.ashx?agentid=" +
         agentid +
         "&snid=" +
-        snid
+        snid +
+        "&hiddenid=" +
+        hiddenid +
+        "&reason=" +
+        reason
     );
   }
 
