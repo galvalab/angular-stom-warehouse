@@ -38,7 +38,7 @@ export class DeviceDetailComponent implements OnInit {
   deleteConfTwo = false;
   deleteConfThree = false;
 
-  selectedReason: string;
+  selectedReason: string = "";
   reason: string = "";
 
   constructor(
@@ -196,10 +196,15 @@ export class DeviceDetailComponent implements OnInit {
   }
 
   deleteDevice() {
+    console.log(this.agentid);
+    console.log(this.deviceid);
     console.log(this.selectedReason);
-    console.log(this.reason);
-    this.stomws.deleteDevice(this.agentid, this.deviceid, this.selectedReason, this.reason).subscribe(resp => {
-      this.router.navigateByUrl(this.backUrl);
-    });
+    console.log(window.btoa(this.reason));
+
+    this.stomws
+      .deleteDevice(this.agentid, this.deviceid, this.selectedReason, window.btoa(this.reason))
+      .subscribe(resp => {
+        this.router.navigateByUrl(this.backUrl);
+      });
   }
 }
